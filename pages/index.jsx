@@ -1,8 +1,13 @@
 import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Footer from '../components/Footer'
+import Header from '../components/Header'
+import { useSession } from 'next-auth/react'
 
 export default function Home() {
+  const session = useSession()
+
+  console.log('session: ', session)
+
   return (
     <div className="container">
       <Head>
