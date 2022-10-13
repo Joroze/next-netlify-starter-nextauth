@@ -35,54 +35,7 @@ export const authOptions: NextAuthOptions = {
         }
       },
     }),
-    // Auth0Provider({
-    //   clientId: process.env.AUTH0_CLIENT_ID as string,
-    //   clientSecret: process.env.AUTH0_CLIENT_SECRET as string,
-    //   issuer: process.env.AUTH0_ISSUER,
-    //   authorization: {
-    //     params: {
-    //       audience: process.env.AUTH0_AUDIENCE,
-    //       scope: 'openid email profile offline_access',
-    //     },
-    //   },
-    // }),
   ],
-  callbacks: {
-    // Assigning encoded token from API to token created in the session
-    // async jwt({ token, account, user }) {
-    //   // Initial sign in
-    //   if (account && user) {
-    //     return {
-    //       accessToken: account.access_token,
-    //       idToken: account.id_token,
-    //       accessTokenExpires: account.expires_at * 1000,
-    //       refreshToken: account.refresh_token,
-    //       provider: account.provider,
-    //       user,
-    //     };
-    //   }
-
-    //   // Return previous token if the access token has not expired yet
-    //   if (Date.now() < token.accessTokenExpires) {
-    //     return token;
-    //   }
-
-    //   // Access token has expired, try to update it
-    //   switch (token.provider) {
-    //     case 'google':
-    //       return refreshGoogleTokens(token);
-    //     case 'auth0':
-    //       return refreshAuth0Tokens(token);
-    //     default:
-    //       // TODO: Support other providers for refreshing tokens
-    //       return token;
-    //   }
-    // },
-    async session({ session, token }) {
-
-      return session;
-    },
-  },
   session: { strategy: 'jwt' },
 };
 
