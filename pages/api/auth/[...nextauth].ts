@@ -4,9 +4,9 @@ import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const authOptions: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
-  // pages: {
-  //   signIn: '/auth/signin',
-  // },
+  pages: {
+    signIn: '/auth/signin',
+  },
   providers: [
     CredentialsProvider({
       // The name to display on the sign in form (e.g. "Sign in with...")
@@ -20,6 +20,7 @@ export const authOptions: NextAuthOptions = {
         password: { label: 'Password', type: 'password' },
       },
       async authorize(credentials, req) {
+        console.log('hi test: ', credentials);
         // Add logic here to look up the user from the credentials supplied
         const user = { id: 1, name: 'J Smith', email: 'jsmith@example.com' };
 
