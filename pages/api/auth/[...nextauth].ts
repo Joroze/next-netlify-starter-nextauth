@@ -1,5 +1,4 @@
 import NextAuth, { NextAuthOptions } from 'next-auth';
-// import Auth0Provider from 'next-auth/providers/auth0';
 import CredentialsProvider from 'next-auth/providers/credentials';
 
 export const authOptions: NextAuthOptions = {
